@@ -28,7 +28,7 @@ public class HelloControllerTest {
     @Autowired
     private MockMvc mvc;
 
-    @WithMockUser(roles="USER")
+    @WithMockUser(roles="GUEST")
     @Test
     public void hello가_리턴된다() throws Exception {
         String hello = "hello";
@@ -38,7 +38,7 @@ public class HelloControllerTest {
                 .andExpect(content().string(hello));
     }
 
-    @WithMockUser(roles="USER")
+    @WithMockUser(roles="GUEST")
     @Test
     public void helloDto가_리턴된다() throws Exception {
         String name = "hello";
