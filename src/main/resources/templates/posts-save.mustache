@@ -1,25 +1,69 @@
 {{>layout/header}}
 
-<h1>게시글 등록</h1>
-
-<div class="col-md-12">
-    <div class="col-md-4">
+<div class="flex items-center justify-center p-12">
+    <div class="mx-auto w-full max-w-[550px]">
+        <div class="text-center text-lg">게시글 등록</div>
         <form>
-            <div class="form-group">
-                <label for="title">제목</label>
-                <input type="text" class="form-control" id="title" placeholder="제목을 입력하세요">
+            <div class="mb-5">
+                <label
+                        for="title"
+                        class="mb-3 block text-base font-medium text-[#07074D]"
+                >
+                    제목
+                </label>
+                <input
+                        type="text"
+                        name="name"
+                        id="title"
+                        placeholder="제목"
+                        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                />
             </div>
-            <div class="form-group">
-                <label for="author"> 작성자 </label>
-                <input type="text" class="form-control" id="author" value={{user-email}} placeholder="작성자를 입력하세요" readonly>
+            <div class="mb-5">
+                <label
+                        for="author"
+                        class="mb-3 block text-base font-medium text-[#07074D]"
+                >
+                    작성자
+                </label>
+                <input
+                        type="email"
+                        name="email"
+                        id="author"
+                        value={{user-email}}
+                        placeholder="작성자를 입력하세요"
+                        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                        readonly
+                />
             </div>
-            <div class="form-group">
-                <label for="content"> 내용 </label>
-                <textarea class="form-control" id="content" placeholder="내용을 입력하세요"></textarea>
+            <div class="mb-5">
+                <label
+                        for="content"
+                        class="mb-3 block text-base font-medium text-[#07074D]"
+                >
+                    Message
+                </label>
+                <textarea
+                        rows="4"
+                        name="message"
+                        id="content"
+                        placeholder="내용"
+                        class="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                ></textarea>
             </div>
         </form>
-        <a href="/" role="button" class="btn btn-secondary">취소</a>
-        <button type="button" class="btn btn-primary" id="btn-save">등록</button>
+        <div class="space-x-4">
+            <a href="/" role="button" class="hover:shadow-form rounded-md bg-[#6A64F1] py-4 px-8 text-base font-semibold text-white outline-none"
+            >
+                취소
+            </a>
+            <button
+                    class="hover:shadow-form rounded-md bg-[#6A64F1] py-4 px-8 text-base font-semibold text-white outline-none"
+                    id="btn-save"
+            >
+                등록
+            </button>
+        </div>
     </div>
 </div>
 

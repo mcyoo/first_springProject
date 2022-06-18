@@ -1,31 +1,46 @@
 {{>layout/header}}
 
-<h1>게시글 확인</h1>
-
-<div class="col-md-12">
-    <div class="col-md-4">
-        <div class="form-group">
-            <label for="title">글 번호</label>
-            <input type="text" class="form-control" id="id" value="{{post.id}}" readonly>
+<div class="flex items-center justify-center p-12">
+    <div class="mx-auto w-full max-w-[550px]">
+        <div class="text-center text-lg">게시글</div>
+        <div class="mb-5">
+            <label for="id" class="mb-3 block text-base font-medium text-[#07074D]">
+                글 번호
+            </label>
+            <input type="text" name="id" id="id" value={{post.id}} class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" readonly />
         </div>
-        <div class="form-group">
-            <label for="title">제목</label>
-            <input type="text" class="form-control" id="title" value="{{post.title}}" readonly>
+        <div class="mb-5">
+            <label for="title" class="mb-3 block text-base font-medium text-[#07074D]">
+                제목
+            </label>
+            <input type="text" name="title" id="title" value={{post.title}} class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" readonly />
         </div>
-        <div class="form-group">
-            <label for="author"> 작성자 </label>
-            <input type="text" class="form-control" id="author" value="{{post.author}}" readonly>
+        <div class="mb-5">
+            <label for="author" class="mb-3 block text-base font-medium text-[#07074D]">
+                작성자
+            </label>
+            <input type="text" name="author" id="author" value={{post.author}} class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" readonly />
         </div>
-        <div class="form-group">
-            <label for="content"> 내용 </label>
-            <textarea class="form-control" id="content" readonly>{{post.content}}</textarea>
+        <div class="mb-5">
+            <label for="content" class="mb-3 block text-base font-medium text-[#07074D]">
+                내용
+            </label>
+            <textarea
+                    rows="4"
+                    class="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                    id="content"
+                    readonly
+                >{{post.content}}
+            </textarea>
         </div>
-        <a href="/" role="button" class="btn btn-secondary">취소</a>
-        {{#owner}}
-            <a href="/posts/update/{{id}}" class="btn btn-success active" role="button">수정</a>
-        {{/owner}}
-        {{^owner}}
-        {{/owner}}
+        <div class="space-x-4">
+            <a href="/" role="button" class="hover:shadow-form rounded-md bg-[#6A64F1] py-4 px-8 text-base font-semibold text-white outline-none">취소</a>
+            {{#owner}}
+                <a href="/posts/update/{{post.id}}" class="hover:shadow-form rounded-md bg-[#6A64F1] py-4 px-8 text-base font-semibold text-white outline-none" role="button">수정</a>
+            {{/owner}}
+            {{^owner}}
+            {{/owner}}
+        </div>
     </div>
 </div>
 

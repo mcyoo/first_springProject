@@ -19,6 +19,11 @@ public class IndexController {
     private final PostsService postsService;
     private final HttpSession httpSession;
 
+    @GetMapping("/loginForm")
+    public String loginForm(){
+        return "loginForm";
+    }
+
     @GetMapping("/")
     public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
@@ -26,6 +31,15 @@ public class IndexController {
             model.addAttribute("userName", user.getName());
         }
         return "index";
+    }
+
+    @GetMapping("/posts/list")
+    public String postsList(Model model, @LoginUser SessionUser user) {
+        model.addAttribute("posts", postsService.findAllDesc());
+        if (user != null) {
+            model.addAttribute("userName", user.getName());
+        }
+        return "posts-list";
     }
 
     @GetMapping("/posts/{id}")
