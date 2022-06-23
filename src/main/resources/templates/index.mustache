@@ -75,63 +75,48 @@
     <p class="">우리는 동물적 감각과 이성적 감각을 동시에 지니는 인간 입니다. 우리들은 자라온 환경과 배경, 성별, 언어, 피부색이 달라도 인간이라는점 에서 공통 입니다.</p>
 </div>
 
-<div class="bg-gray-100">
-    <section>
-        {{#posts}}
-        <section class="text-gray-600 body-font">
-            <div class="container px-5 py-24 mx-auto">
-                <div class="p-5 bg-white flex items-center mx-auto border-b  mb-10 border-gray-200 rounded-lg sm:flex-row flex-col">
-                    <div class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center flex-shrink-0">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/thecaffeinecode.appspot.com/o/Tcc_img%2Flogo.png?alt=media&token=5e5738c4-8ffd-44f9-b47a-57d07e0b7939"/>
-                    </div>
-                    <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
-                        <a href="/posts/{{id}}" class="text-black text-2xl title-font font-bold mb-2">{{title}}</a>
-                        <p class="leading-relaxed text-base">{{content}}</p>
-                        <div class="py-4">
-                            <div class=" inline-block mr-2" >
-                                <div class="flex  pr-2 h-full items-center">
-                                    <svg class="text-yellow-500 w-6 h-6 mr-1"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z"/>
-                                        <circle cx="12" cy="12" r="9" />
-                                        <path d="M9 12l2 2l4 -4" />
-                                    </svg>
-                                    <p class="title-font font-medium">레드포도</p>
-                                </div>
+
+
+
+<section class="container mx-auto p-6 font-mono">
+    <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
+        <div class="w-full overflow-x-auto">
+            <table class="w-full">
+                <thead>
+                <tr class="font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+                    <th class="px-4 py-3">제목</th>
+                    <th class="px-4 py-3 w-1/3">내용</th>
+                    <th class="px-4 py-3">작성자</th>
+                    <th class="px-4 py-3">날짜</th>
+                </tr>
+                </thead>
+                <tbody class="bg-white">
+
+                {{#posts}}
+                <tr class="text-gray-700 text-xs md:text-sm">
+                    <td class="px-4 py-3 border">
+                        <div class="flex items-center text-sm">
+                            <div class="relative w-8 h-8 mr-3 rounded-full md:block">
+                                <img class="object-cover w-full h-full rounded-full" src="https://images.pexels.com/photos/5212324/pexels-photo-5212324.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="" loading="lazy" />
+                                <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
                             </div>
-                            <div class=" inline-block mr-2" >
-                                <div class="flex  pr-2 h-full items-center">
-                                    <svg class="text-gray-500 w-6 h-6 mr-1"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10" />
-                                        <line x1="15" y1="9" x2="9" y2="15" />
-                                        <line x1="9" y1="9" x2="15" y2="15" />
-                                    </svg>
-                                    <p class="title-font font-medium">그린포도</p>
-                                </div>
+                            <div>
+                                <a href="/posts/{{id}}" class="font-semibold text-black leading-tight">{{title}}</a>
+                                <p class="text-gray-600">시민</p>
                             </div>
                         </div>
-                        <div class="md:flex font-bold text-gray-800">
-                            <div class="w-full md:w-1/2 flex space-x-3">
-                                <div class="w-1/2">
-                                    <h2 class="text-gray-500">작성자</h2>
-                                    <p>{{author}}</p>
-                                </div>
-                                <div class="w-1/2">
-                                    <h2 class="text-gray-500">작성일</h2>
-                                    <p>{{modifiedDate}}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <a class="mt-3 text-indigo-500 inline-flex items-center">Learn More
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                <path d="M5 12h14M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        {{/posts}}
-    </section>
-</div>
+                    </td>
+                    <td class="px-4 py-3 border leading-tight">{{content}}</td>
+                    <td class="px-4 py-3 border">
+                        <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm">{{author}}</span>
+                    </td>
+                    <td class="px-4 py-3 border">{{modifiedDate}}</td>
+                </tr>
+                {{/posts}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
 
 {{>layout/footer}}
