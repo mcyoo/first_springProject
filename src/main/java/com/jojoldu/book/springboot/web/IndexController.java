@@ -29,6 +29,7 @@ public class IndexController {
         model.addAttribute("posts", postsService.findAllDesc());
         if (user != null) {
             model.addAttribute("userName", user.getName());
+            model.addAttribute("userPicture", user.getPicture());
         }
         return "index";
     }
