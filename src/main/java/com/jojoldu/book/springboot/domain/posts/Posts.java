@@ -1,15 +1,12 @@
 package com.jojoldu.book.springboot.domain.posts;
 
 import com.jojoldu.book.springboot.domain.BaseTimeEntity;
+import com.jojoldu.book.springboot.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
@@ -28,11 +25,15 @@ public class Posts extends BaseTimeEntity {
 
     private String author;
 
+    private String picture;
+
+
     @Builder
-    public Posts(String title, String content, String author) {
+    public Posts(String title, String content, String author,String picture) {
         this.title = title;
         this.content = content;
         this.author = author;
+        this.picture = picture;
     }
 
     public void update(String title, String content) {

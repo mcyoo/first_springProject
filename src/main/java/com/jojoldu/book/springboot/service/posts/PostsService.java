@@ -2,6 +2,8 @@ package com.jojoldu.book.springboot.service.posts;
 
 import com.jojoldu.book.springboot.domain.posts.Posts;
 import com.jojoldu.book.springboot.domain.posts.PostsRepository;
+import com.jojoldu.book.springboot.domain.user.User;
+import com.jojoldu.book.springboot.domain.user.UserRepository;
 import com.jojoldu.book.springboot.web.dto.PostsListResponseDto;
 import com.jojoldu.book.springboot.web.dto.PostsResponseDto;
 import com.jojoldu.book.springboot.web.dto.PostsSaveRequestDto;
@@ -18,9 +20,20 @@ import java.util.stream.Collectors;
 public class PostsService {
     private final PostsRepository postsRepository;
 
+    private final UserRepository userRepository;
+
     @Transactional
     public Long save(PostsSaveRequestDto requestDto) {
-        return postsRepository.save(requestDto.toEntity()).getId();
+
+        String userEmail = requestDto.getAuthor();
+        String picture = "";
+        User user = userRepository.findByEmail(userEmail)
+                .orElse(null);
+        if(user != null){
+            picture = user.getPicture();
+        }
+
+        return postsRepository.save(requestDto.toEntity(picture)).getId();
     }
 
     @Transactional

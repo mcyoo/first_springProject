@@ -67,12 +67,14 @@ public class PostsApiControllerTest {
     @WithMockUser(roles="GUEST")
     public void Posts_등록된다() throws Exception {
         //given
-        String title = "";
-        String content = "content";
+        String title = "제목 입니다.";
+        String content = "내용 입니다.";
+        String author = "dbwptjr247@naver.com";
+
         PostsSaveRequestDto requestDto = PostsSaveRequestDto.builder()
                 .title(title)
                 .content(content)
-                .author("author")
+                .author(author)
                 .build();
 
         String url = "http://localhost:" + port + "/api/v1/posts";
@@ -81,9 +83,14 @@ public class PostsApiControllerTest {
         mvc.perform(post(url)
                         .contentType(MediaType.APPLICATION_JSON_UTF8)
                         .content(new ObjectMapper().writeValueAsString(requestDto)))
-                .andExpect(status().isBadRequest())//400
-                .andExpect(jsonPath("$.message").value("잘못된 요청입니다."))
+                .andExpect(status().isOk())//400
+                //.andExpect(jsonPath("$.message").value("잘못된 요청입니다."))
                 .andDo(print());
+        //then
+        List<Posts> all = postsRepository.findAll();
+        assertThat(all.get(0).getTitle()).isEqualTo("제목 입니다.");
+        assertThat(all.get(0).getContent()).isEqualTo("내용 입니다.");
+        assertThat(all.get(0).getPicture()).isEqualTo("");
 
     }
 
