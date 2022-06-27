@@ -24,8 +24,6 @@ public class Posts extends BaseTimeEntity {
     private String content;
 
     private String author;
-
-    @Column(length = 500, nullable = true)
     private String picture;
 
 

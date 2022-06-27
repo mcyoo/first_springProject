@@ -13,6 +13,8 @@ public class PostsListResponseDto {
     private LocalDateTime modifiedDate;
     private String content;
 
+    private String picture;
+
 
     public PostsListResponseDto(Posts entity) {
         this.id = entity.getId();
@@ -20,5 +22,6 @@ public class PostsListResponseDto {
         this.author = entity.getAuthor();
         this.modifiedDate = entity.getModifiedDate();
         this.content = entity.getContent();
+        this.picture = entity.getPicture();
     }
 }
