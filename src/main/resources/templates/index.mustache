@@ -84,8 +84,8 @@
             <table class="w-full">
                 <thead>
                 <tr class="font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
-                    <th class="px-4 py-3">제목</th>
-                    <th class="px-4 py-3 w-1/3">내용</th>
+                    <th class="px-4 py-3">이름</th>
+                    <th class="px-4 py-3 w-1/3">제목</th>
                     <th class="px-4 py-3">작성자</th>
                     <th class="px-4 py-3">날짜</th>
                 </tr>
@@ -100,13 +100,11 @@
                                 <img class="object-cover w-full h-full rounded-full" src={{#picture}}{{picture}}{{/picture}}{{^picture}}""{{/picture}} alt="" loading="lazy" />
                                 <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
                             </div>
-                            <div>
-                                <a href="/posts/{{id}}" class="font-semibold text-black leading-tight">{{title}}</a>
-                                <p class="text-gray-600">시민</p>
-                            </div>
                         </div>
                     </td>
-                    <td class="px-4 py-3 border leading-tight">{{content}}</td>
+                    <td class="px-4 py-3 border leading-tight">
+                        <a href="/posts/{{id}}" class="font-semibold text-black leading-tight">{{title}}</a>
+                    </td>
                     <td class="px-4 py-3 border">
                         <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm">{{author}}</span>
                     </td>
